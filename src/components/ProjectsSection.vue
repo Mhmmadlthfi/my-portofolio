@@ -37,7 +37,7 @@
               class="btn btn-gradient btn-sm mt-2"
               target="_blank"
             >
-              Lihat Detail
+               Lihat Detail
             </a>
 
           </div>
@@ -82,7 +82,7 @@
       technologies: 'Vue 3, Bootstrap 5, AOS, tsParticles',
       challenges:
         'Menerapkan Composition API secara optimal agar kode tetap bersih dan terstruktur, mengelola animasi dengan AOS, serta menyesuaikan komponen agar responsif dan enak dilihat di berbagai perangkat.',
-      link: 'https://github.com/username/vue3-portfolio',
+      link: 'https://github.com/Mhmmadlthfi/my-portofolio',
     },
   ]);
 </script>
