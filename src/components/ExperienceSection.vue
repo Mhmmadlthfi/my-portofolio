@@ -55,13 +55,16 @@ const experiences = [
   {
     company: 'Trusmi Group',
     position: 'Fullstack Developer',
-    period: '2025 - Sekarang',
+    period: 'Agustus 2025 - Sekarang',
     logo: '/images/logo-tg.jpg',
     techStack: [
       'Codeigniter',
       'Laravel',
       'MySQL',
       'REST API',
+      'HTML',
+      'CSS',
+      'Javascript',
       'Bootstrap',
       'Jquery',
       'n8n'

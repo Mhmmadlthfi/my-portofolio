@@ -84,6 +84,16 @@
         'Menerapkan Composition API secara optimal agar kode tetap bersih dan terstruktur, mengelola animasi dengan AOS, serta menyesuaikan komponen agar responsif dan enak dilihat di berbagai perangkat.',
       link: 'https://github.com/Mhmmadlthfi/my-portofolio',
     },
+    {
+      title: 'Sistem Sewa Perlengkapan Resepsi Pernikahan',
+      description:
+        'Sistem ini merupakan aplikasi penyewaan perlengkapan resepsi pernikahan yang terdiri dari aplikasi mobile untuk klien dan aplikasi web untuk admin. Aplikasi mobile digunakan oleh klien untuk melihat katalog perlengkapan, melakukan pemesanan, mengecek ketersediaan stok berdasarkan tanggal sewa, serta melakukan pembayaran secara online. Aplikasi web digunakan oleh admin untuk mengelola data katalog, pesanan, dan status pembayaran. Sistem dibangun menggunakan Laravel sebagai backend dan API, serta React Native (Expo) untuk aplikasi mobile.',
+      technologies:
+        'Laravel, Laravel Sanctum, MySQL, React Native (Expo), Axios, Midtrans, Blade Template, AlpineJS',
+      challenges:
+        'Mengintegrasikan API Laravel dengan aplikasi mobile, mengelola autentikasi pengguna menggunakan Sanctum, melakukan pengecekan ketersediaan stok berdasarkan rentang tanggal sewa, serta mengintegrasikan payment gateway Midtrans dan menangani notifikasi pembayaran.',
+      link: 'https://github.com/Mhmmadlthfi/sewa-perlengkapan-nikah-mobile#readme',
+    },
   ]);
 </script>
 
