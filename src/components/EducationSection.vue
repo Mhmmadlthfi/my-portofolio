@@ -75,6 +75,5 @@
 </template>
 
 <script setup>
-  // tidak ada logika
 </script>
 

@@ -87,6 +87,8 @@
 
       <EducationSection />
 
+      <ExperienceSection />
+
       <ProjectsSection />
 
       <SkillsSection />
@@ -111,6 +113,7 @@
   import HomeSection from './components/HomeSection.vue';
   import AboutSection from './components/AboutSection.vue';
   import EducationSection from './components/EducationSection.vue';
+  import ExperienceSection from './components/ExperienceSection.vue';
   import ProjectsSection from './components/ProjectsSection.vue';
   import SkillsSection from './components/SkillsSection.vue';
   import CourseExperience from './components/CourseExperience.vue';

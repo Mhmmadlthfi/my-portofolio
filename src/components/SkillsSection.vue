@@ -83,7 +83,7 @@
       name: 'PHP',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
       level: 'Advanced',
-      percent: 75,
+      percent: 90,
     },
     {
       name: 'MySQL',
@@ -101,13 +101,13 @@
       name: 'Java',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
       level: 'Intermediate',
-      percent: 50,
+      percent: 25,
     },
     {
       name: 'Laravel',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
       level: 'Advanced',
-      percent: 75,
+      percent: 90,
     },
     {
       name: 'ReactJS',

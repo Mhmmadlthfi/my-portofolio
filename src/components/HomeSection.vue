@@ -22,7 +22,7 @@
           </h1>
 
           <p class="lead introduction-text fw-medium fs-6">
-             Fresh Graduate Jurusan Sistem Informasi Sarjana 2024
+             Junior Fullstack Developer | Web & Mobile Development
           </p>
 
           <div
@@ -55,7 +55,7 @@
           <div class="glass p-2 rounded-circle d-inline-block">
 
             <img
-              src="/images/profile-picture-ai.png"
+              src="/images/profil-pantai-2.jpeg"
               alt="Foto Profil"
               class="img-fluid rounded-circle profile-img"
             />

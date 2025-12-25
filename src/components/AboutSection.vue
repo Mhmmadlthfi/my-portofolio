@@ -12,18 +12,26 @@
       >
 
         <p>
-           Saya adalah lulusan Sistem Informasi Universitas Teknologi Yogyakarta
-          tahun 2024 yang memiliki minat besar di dunia teknologi. Selama
-          kuliah, saya mendalami berbagai bidang seperti pemrograman,
-          database,big data dan data analytics, machine learning, analisis
-          sistem informasi, e-business, serta desain antarmuka pengguna (UI).
+          Saya lulusan Sistem Informasi Universitas Teknologi Yogyakarta (2024)
+          yang tertarik mengembangkan aplikasi yang fungsional,
+          rapi, dan mudah digunakan.
         </p>
 
         <p>
-           Saya senang mempelajari hal-hal baru dan mudah beradaptasi dengan
-          perubahan teknologi. Dengan pemahaman yang saya miliki serta semangat
-          untuk terus belajar, saya siap berkontribusi dalam dunia profesional
-          dan berkembang bersama tim.
+          Laravel merupakan teknologi yang paling sering saya gunakan,
+          namun saya terbiasa mempelajari teknologi lain ketika dibutuhkan.
+          Meskipun masih berada di tahap awal karier,
+          saya memiliki semangat belajar yang tinggi
+          dan percaya diri untuk mengerjakan tanggung jawab baru
+          ketika diberikan kepercayaan dan waktu untuk beradaptasi.
+        </p>
+
+        <p>
+          Dalam mengerjakan proyek, saya terbiasa memperhatikan struktur kode
+          dan keberlanjutan aplikasi,
+          agar mudah dikembangkan dan dipelihara ke depannya.
+          Saya senang membangun sistem dengan pendekatan yang terencana
+          dan berusaha menghasilkan solusi yang stabil serta siap berkembang.
         </p>
 
       </div>
