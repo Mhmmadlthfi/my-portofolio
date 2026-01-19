@@ -12,26 +12,22 @@
       >
 
         <p>
-          Saya lulusan Sistem Informasi Universitas Teknologi Yogyakarta (2024)
-          yang tertarik mengembangkan aplikasi yang fungsional,
-          rapi, dan mudah digunakan.
+            <strong>Junior Fullstack Developer</strong> dengan fokus dan ketertarikan mendalam pada 
+            <strong>Backend Development</strong>. Saya memandang setiap baris kode yang ditulis sebagai sebuah 
+            <em>investasi jangka panjang</em>. Oleh karena itu, fokus utama saya bukan sekadar membuat aplikasi yang 'berjalan', 
+            melainkan membangun sistem dengan standar kualitas tinggi.
         </p>
 
         <p>
-          Laravel merupakan teknologi yang paling sering saya gunakan,
-          namun saya terbiasa mempelajari teknologi lain ketika dibutuhkan.
-          Meskipun masih berada di tahap awal karier,
-          saya memiliki semangat belajar yang tinggi
-          dan percaya diri untuk mengerjakan tanggung jawab baru
-          ketika diberikan kepercayaan dan waktu untuk beradaptasi.
+            Saya sangat mementingkan implementasi <strong>arsitektur yang bersih (clean architecture)</strong>, 
+            struktur kode yang rapi, serta prinsip <strong>maintainability</strong>. Dalam setiap proyek, 
+            saya berkomitmen untuk mengoptimalkan performa kode agar tetap maksimal dan memastikan sistem yang dibangun 
+            bersifat <strong>scalable</strong>—siap untuk berkembang seiring bertambahnya kebutuhan di masa depan.
         </p>
 
         <p>
-          Dalam mengerjakan proyek, saya terbiasa memperhatikan struktur kode
-          dan keberlanjutan aplikasi,
-          agar mudah dikembangkan dan dipelihara ke depannya.
-          Saya senang membangun sistem dengan pendekatan yang terencana
-          dan berusaha menghasilkan solusi yang stabil serta siap berkembang.
+            Sebagai developer yang adaptif terhadap berbagai <em>tech stack</em>, saya percaya bahwa landasan teknis 
+            yang kokoh dan perencanaan sistem yang matang adalah kunci dalam menghasilkan solusi digital yang stabil dan efisien.
         </p>
 
       </div>
