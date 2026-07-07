@@ -10,10 +10,9 @@
     "deploy": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
-    "@tsparticles/slim": "^3.8.1",
-    "@tsparticles/vue3": "^3.0.1",
+    "@tailwindcss/vite": "^4.3.2",
     "aos": "^2.3.4",
-    "bootstrap": "^5.3.5",
+    "tailwindcss": "^4.3.2",
     "vue": "^3.5.13"
   },
   "devDependencies": {

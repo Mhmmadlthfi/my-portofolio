@@ -1,165 +1,108 @@
 <template>
-
   <section
     id="home"
-    class="position-relative d-flex align-items-center min-vh-100"
-    data-aos="fade-in"
+    class="relative min-h-screen flex items-center justify-center bg-noise pt-12 overflow-hidden"
   >
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-dark/80"></div>
 
-    <div class="container position-relative">
+    <div class="relative z-10 w-full h-full flex items-center justify-center max-w-[100rem] mx-auto px-4">
+      <div class="relative flex flex-col items-center justify-center w-full mt-10">
+        <div class="w-full max-w-6xl flex justify-start md:pl-24 mb-[-3vw] relative z-20 pointer-events-none">
+          <h2 class="font-display font-bold text-2xl md:text-4xl tracking-[0.4em] text-white/90 uppercase">
+            Muhammad
+          </h2>
+        </div>
 
-      <div class="row align-items-center">
+        <div class="relative z-30 w-full flex justify-center pointer-events-auto mix-blend-normal">
+          <h1
+            class="font-display font-extrabold text-[20vw] md:text-[16vw] leading-[0.8] tracking-tighter text-center uppercase text-outline cursor-crosshair -rotate-[5deg]"
+            @mouseenter="handleTextHover"
+            @mouseleave="handleTextLeave"
+          >
+            LUTFI
+          </h1>
+        </div>
+
+        <div class="w-full max-w-6xl flex justify-end md:pr-32 mt-[-2vw] relative z-20 pointer-events-none">
+          <h2 class="font-display font-bold text-2xl md:text-4xl tracking-[0.4em] text-white/90 uppercase">
+            Wahid
+          </h2>
+        </div>
 
         <div
-          class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0 mt-5 mt-lg-0"
-          data-aos="fade-right"
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-80 md:w-[380px] md:h-[480px] bg-zinc-900 border-2 border-white/10 overflow-hidden rotate-[-3deg] hover:rotate-[1deg] transition-transform duration-700 z-10 shadow-2xl neon-glow"
+          @mouseenter="handleImageHover"
+          @mouseleave="handleImageLeave"
         >
-
-          <h1 class="display-3 mb-3">
-
-            <span class="gradient-text fw-bold">{{ typedText }}</span>
-
-          </h1>
-
-          <p class="lead introduction-text fw-medium fs-6">
-             Junior Fullstack Developer | Web & Mobile Development
-          </p>
-
-          <div
-            class="social-icons mt-3 d-flex justify-content-center justify-content-lg-start gap-3"
-          >
-
-            <a
-              v-for="(social, index) in socialLinks"
-              :key="index"
-              :href="social.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              :aria-label="social.name"
-            >
-
-              <i :class="[social.iconClass, 'social-icon']"></i>
-
-            </a>
-
-          </div>
-
-          <a href="#projects" class="btn btn-gradient fw-medium btn-lg mt-4">
-            Lihat Proyek Saya
-          </a>
-
+          <img
+            :src="profileImage"
+            alt="Muhammad Lutfi Wahid"
+            class="w-full h-full object-cover transition-all duration-700"
+            :class="imageClasses"
+            @error="console.error('Gagal memuat gambar di path:', profileImage)"
+          />
         </div>
-
-        <div class="col-lg-6 text-center" data-aos="fade-left">
-
-          <div class="glass p-2 rounded-circle d-inline-block">
-
-            <img
-              src="/images/profil-pantai-2.jpeg"
-              alt="Foto Profil"
-              class="img-fluid rounded-circle profile-img"
-            />
-
-          </div>
-
-        </div>
-
       </div>
 
+      <div
+        class="absolute bottom-12 left-6 md:left-16 hidden md:flex items-center justify-center w-32 h-32 z-30 opacity-70"
+      >
+        <svg class="animate-spin-slow w-full h-full text-white" viewBox="0 0 100 100">
+          <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+          <text class="text-[11px] font-bold uppercase tracking-[0.15em] fill-current">
+            <textPath href="#circlePath">Listen to the next project •</textPath>
+          </text>
+        </svg>
+        <div class="absolute text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </div>
+      </div>
     </div>
 
+    <div class="absolute bottom-12 right-6 md:right-12 z-30 flex flex-col items-end text-right">
+      <p class="font-display text-white text-3xl md:text-4xl font-bold uppercase mb-2 leading-none">
+        Fullstack<br />Developer
+      </p>
+      <div class="w-16 md:w-20 h-1 bg-neon mt-4"></div>
+    </div>
   </section>
-
 </template>
 
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed } from 'vue'
 
-  const typedText = ref('');
-  const fullText = 'Halo, Saya Muhammad Luthfi Wahid';
-  let currentIndex = 0;
-  let typingInterval = null;
+const isTextHovered = ref(false)
+const isImageHovered = ref(false)
 
-  const typeText = () => {
-    if (currentIndex < fullText.length) {
-      typedText.value = fullText.slice(0, currentIndex + 1);
-      currentIndex++;
-    } else {
-      clearInterval(typingInterval);
-    }
-  };
+// Menggunakan import.meta.env.BASE_URL agar path menyesuaikan environment (lokal vs gh-pages)
+const profileImage = `${import.meta.env.BASE_URL}images/profil-pantai-2.jpeg`
 
-  onMounted(() => {
-    typingInterval = setInterval(typeText, 100);
-  });
+const handleTextHover = () => {
+  isTextHovered.value = true
+}
 
-  onUnmounted(() => {
-    clearInterval(typingInterval);
-  });
+const handleTextLeave = () => {
+  isTextHovered.value = false
+}
 
-  const socialLinks = ref([
-    {
-      name: 'GitHub',
-      url: 'https://github.com/Mhmmadlthfi',
-      iconClass: 'fab fa-github',
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/muhammad-lutfi-wahid-a86805265',
-      iconClass: 'fab fa-linkedin',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://instagram.com/mhmmadlthfi_',
-      iconClass: 'fab fa-instagram',
-    },
-    {
-      name: 'Facebook',
-      url: 'https://www.facebook.com/luthfimhmmad',
-      iconClass: 'fab fa-facebook',
-    },
-    {
-      name: 'Twitter',
-      url: 'https://x.com/MhmmadLthfi',
-      iconClass: 'fa-brands fa-x-twitter',
-    },
-  ]);
+const handleImageHover = () => {
+  isImageHovered.value = true
+}
+
+const handleImageLeave = () => {
+  isImageHovered.value = false
+}
+
+const imageClasses = computed(() => ({
+  'opacity-70 mix-blend-luminosity': !isImageHovered.value,
+  'opacity-100 mix-blend-normal': isImageHovered.value,
+}))
 </script>
 
 <style scoped>
-  .container {
-  z-index: 2;
-}
-
-.profile-img {
-  max-width: 250px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.profile-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(24, 127, 245, 0.4);
-}
-
-.social-icon {
-  font-size: 28px;
-  color: #39e3fa;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
-  color: #f2f9ff;
-}
-
-@media (max-width: 991px) {
-  .profile-img {
-    max-width: 200px;
-  }
-}
+/* Semua styling utama sudah didefinisikan di src/style.css melalui @theme dan @utility */
+/* Style tambahan khusus untuk komponen ini bisa ditambahkan di sini jika diperlukan */
 </style>
 
