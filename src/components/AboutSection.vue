@@ -32,7 +32,7 @@
       <div class="lg:col-span-4 flex flex-col gap-6">
         <!-- Kartu Pengalaman -->
         <div class="bg-card rounded-[2rem] p-8 border border-white/5 flex-1 flex flex-col justify-center items-center text-center">
-          <h3 class="font-display text-6xl font-bold text-white mb-2">3+</h3>
+          <h3 class="font-display text-6xl font-bold text-white mb-2">2+</h3>
           <p class="text-zinc-400 font-medium">Years of Learning & Growing</p>
         </div>
         
