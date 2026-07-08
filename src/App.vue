@@ -7,6 +7,9 @@
       <Navbar />
       <HomeSection />
       <AboutSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <Footer />
     </div>
   </div>
 </template>
@@ -32,7 +35,7 @@
   import Navbar from './components/Navbar.vue';
   import HomeSection from './components/HomeSection.vue';
   import AboutSection from './components/AboutSection.vue';
-  import EducationSection from './components/EducationSection.vue';
+  // import EducationSection from './components/EducationSection.vue';
   import ExperienceSection from './components/ExperienceSection.vue';
   import ProjectsSection from './components/ProjectsSection.vue';
   // import SkillsSection from './components/SkillsSection.vue';
@@ -45,4 +48,3 @@
     console.log('Particles container loaded', container);
   };
 </script>
-

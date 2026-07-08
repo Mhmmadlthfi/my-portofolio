@@ -42,11 +42,11 @@ const skills = ref([
   // { name: 'Jupyter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg' },
   { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   // { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/white'}
+  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/white'},
+  { name: 'n8n', icon: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/n8n.svg' },
 ]);
 </script>
 
 <style scoped>
-/* Menghapus semua style lama karena menggunakan Tailwind */
 </style>
 
