@@ -1,157 +1,181 @@
 <template>
-  <section id="course" class="py-5" data-aos="fade-up">
-    <div class="container">
-      <h2 class="text-center mb-4 gradient-text">
-        Pengalaman Bootcamp & Course
-      </h2>
-
-      <div class="scroll-container d-flex overflow-auto gap-4 px-2 py-1 pb-2">
-        <div
-          v-for="(course, index) in courses"
-          :key="index"
-          class="card course-card glass flex-shrink-0 p-4 shadow-sm"
+  <section id="courses" class="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <!-- Label Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon/30 bg-neon/5 text-neon text-xs font-semibold uppercase tracking-widest mb-6">
+          <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span> Training & Courses
+        </div>
+        
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          Continuous <span class="text-neon">Learning</span>
+        </h2>
+      </div>
+      
+      <!-- Navigasi Desktop & Tablet (Disembunyikan di Mobile) -->
+      <div class="hidden md:flex gap-4">
+        <button 
+          @click="scroll('prev')" 
+          class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-neon hover:text-neon hover:bg-neon/10 transition-all duration-300"
+          aria-label="Previous Course"
         >
-          <div class="card-body">
-            <h5 class="card-title gradient-text">
-              {{ course.title }} - {{ course.issuer }}, {{ course.year }}
-            </h5>
-            <p class="card-text mb-3">{{ course.description }}</p>
-            <a
-              :href="course.filePath"
-              target="_blank"
-              class="btn btn-sm btn-gradient"
-            >
-              Lihat Sertifikat
-            </a>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button 
+          @click="scroll('next')" 
+          class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-neon hover:text-neon hover:bg-neon/10 transition-all duration-300"
+          aria-label="Next Course"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Container -->
+    <div 
+      ref="scrollContainer"
+      class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0"
+    >
+      
+      <!-- Course Card -->
+      <div 
+        v-for="(course, index) in courses" 
+        :key="index"
+        class="shrink-0 snap-start w-[85%] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] group bg-card rounded-[2rem] p-8 border border-white/5 hover:border-neon/30 transition-all duration-500 flex flex-col relative overflow-hidden"
+      >
+        <!-- Efek Glow Hover di dalam Card -->
+        <div class="absolute top-0 right-0 w-40 h-40 bg-neon/5 rounded-full blur-[60px] -z-10 group-hover:bg-neon/15 transition-colors duration-700"></div>
+
+        <!-- Header Card: Issuer & Year -->
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            <span class="text-sm font-bold text-white">{{ course.issuer }}</span>
           </div>
+          <span class="text-xs font-bold text-zinc-500 border border-white/10 bg-black/20 rounded-full px-3 py-1">
+            {{ course.year }}
+          </span>
+        </div>
+        
+        <!-- Info course -->
+        <h3 class="font-display text-xl font-bold mb-4 group-hover:text-neon transition-colors duration-300 leading-snug">
+          {{ course.title }}
+        </h3>
+        
+        <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-1 line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
+          {{ course.description }}
+        </p>
+        
+        <!-- Action Link -->
+        <div class="pt-5 border-t border-white/10 mt-auto">
+          <a 
+            :href="course.filePath" 
+            target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-neon transition-colors"
+          >
+            View Certificate
+            <svg class="w-5 h-5 transform -rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
         </div>
       </div>
+
     </div>
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const scrollContainer = ref(null);
+
+const scroll = (direction) => {
+  if (scrollContainer.value) {
+    const scrollAmount = scrollContainer.value.clientWidth > 1024 
+      ? scrollContainer.value.clientWidth / 3 
+      : scrollContainer.value.clientWidth / 2; 
+      
+    scrollContainer.value.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+};
+
 const courses = [
   {
-    title: 'Belajar Analisis Data dengan Python',
+    title: 'Learn Data Analysis with Python',
     issuer: 'Dicoding',
     year: 2024,
-    description:
-      'Mengikuti kelas analisis data yang mencakup dasar-dasar analisis, statistik deskriptif, data wrangling, exploratory data analysis (EDA), visualisasi data, serta pembuatan dashboard interaktif dengan Streamlit. Kelas diakhiri dengan ujian dan proyek analisis data menggunakan Python.',
-    filePath:
-      '/documents/course/sertifikat-belajar-analisis-data-dengan-python.pdf',
+    description: 'Completed a comprehensive data analysis course covering fundamental concepts, descriptive statistics, data wrangling, exploratory data analysis (EDA), data visualization, and building interactive dashboards with Streamlit. The course concluded with a final exam and a Python-based data analysis project.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-belajar-analisis-data-dengan-python.pdf`,
   },
   {
-    title: 'Memulai Pemrograman dengan Python',
+    title: 'Introduction to Python Programming',
     issuer: 'Dicoding',
     year: 2024,
-    description:
-      'Mengikuti kelas pemrograman Python untuk pemula sesuai standar industri. Materi mencakup dasar Python, manipulasi data, kontrol alur program, array, matriks, subprogram (fungsi dan prosedur), OOP, PEP8, unit testing, serta pengenalan library populer untuk berbagai kebutuhan seperti teks, data, web scraping, machine learning, dan web development. Pembelajaran dilakukan melalui berbagai IDE, dan diakhiri dengan ujian akhir.',
-    filePath:
-      '/documents/course/sertifikat-memulai-pemrograman-dengan-python.pdf',
+    description: 'An industry-standard Python programming course for beginners. Topics included Python fundamentals, data manipulation, control flow, arrays, matrices, subprograms, OOP, PEP8, unit testing, and an introduction to popular libraries for text processing, data science, web scraping, machine learning, and web development.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-memulai-pemrograman-dengan-python.pdf`,
   },
   {
-    title: 'Belajar Dasar Data Science',
+    title: 'Learn Fundamentals of Data Science',
     issuer: 'Dicoding',
     year: 2024,
-    description:
-      'Mengikuti kelas pengenalan data science yang mencakup jenis data, pengambilan keputusan berbasis data, siklus analisis, serta tools seperti SQL, NoSQL, Excel, SPSS, Tableau, dan perbandingan Python vs R. Materi juga meliputi dasar machine learning, peluang karier, latihan portofolio, dan diakhiri dengan ujian akhir.',
-    filePath: '/documents/course/sertifikat-belajar-dasar-data-science.pdf',
+    description: 'An introductory data science course covering data types, data-driven decision making, analysis cycles, and tools like SQL, NoSQL, Excel, SPSS, and Tableau, including a Python vs R comparison. Topics also covered basic machine learning, career opportunities, and portfolio exercises.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-belajar-dasar-data-science.pdf`,
   },
   {
-    title: 'Belajar Dasar Pemrograman JavaScript',
+    title: 'Learn Fundamental JavaScript Programming',
     issuer: 'Dicoding',
     year: 2023,
-    description:
-      'Mengikuti kelas pengembangan web dan backend dengan Node.js sesuai standar industri AWS. Materi mencakup dasar JavaScript, OOP, pemrograman fungsional, pengelolaan environment, module, error handling, asynchronous processing, penggunaan NPM, serta pengujian otomatis. Kelas ditutup dengan ujian akhir.',
-    filePath:
-      '/documents/course/sertifikat-belajar-dasar-pemrograman-javascript.pdf',
+    description: 'Completed web and backend development training with Node.js aligned with AWS industry standards. Topics covered JavaScript fundamentals, OOP, functional programming, environment management, modules, error handling, asynchronous processing, NPM usage, and automated testing.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-belajar-dasar-pemrograman-javascript.pdf`,
   },
   {
-    title: 'Belajar Dasar-Dasar DevOps',
+    title: 'Learn Fundamentals of DevOps',
     issuer: 'Dicoding',
     year: 2023,
-    description:
-      'Mengikuti kelas DevOps yang membahas dasar konsep, prinsip The Three Ways, kultur CALMS Framework, praktik DevOps seperti DevOps Pipeline, alat otomatisasi, dan studi kasus implementasi di perusahaan seperti Amazon. Kelas diakhiri dengan ujian akhir.',
-    filePath: '/documents/course/sertifikat-dasar-dasar-devops.pdf',
+    description: 'A comprehensive DevOps course covering core concepts, The Three Ways principles, the CALMS Framework culture, and DevOps practices like CI/CD Pipelines and automation tools, supported by industry case studies (e.g., Amazon).',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-dasar-dasar-devops.pdf`,
   },
   {
-    title: 'Memulai Dasar Pemrograman untuk Menjadi Pengembang Software',
+    title: 'Introduction to Programming for Software Developers',
     issuer: 'Dicoding',
     year: 2023,
-    description:
-      'Mengikuti kelas pemrograman dasar untuk pemula dengan fokus pada HTML, CSS, dan JavaScript, serta pemahaman kebutuhan aplikasi, perancangan diagram alur, dan modifikasi aplikasi. Materi mencakup dasar pemrograman, sintaksis, variabel, tipe data, logika komputer, pseudocode, dan penggunaan JavaScript ES6. Kelas diakhiri dengan ujian akhir dan sertifikat kompetensi.',
-    filePath:
-      '/documents/course/sertifikat-dasar-pemrograman-untuk-pengembang-software.pdf',
+    description: 'Foundational programming training focusing on HTML, CSS, and JavaScript. Topics included application requirements, flowchart design, basic syntax, variables, data types, computer logic, pseudocode, and ES6 JavaScript.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-dasar-pemrograman-untuk-pengembang-software.pdf`,
   },
   {
-    title: 'Belajar Dasar Structured Query Language (SQL)',
+    title: 'Learn Fundamental Structured Query Language (SQL)',
     issuer: 'Dicoding',
     year: 2023,
-    description:
-      'Mengikuti kelas pengenalan SQL untuk data analyst dan data scientist, mencakup dasar data dan basis data, DBMS, serta jenis-jenis data. Materi juga meliputi SQL, DDL, DML (SELECT, INSERT, UPDATE, DELETE), constraints, dan penggunaan diagram dalam SQL. Praktik fokus pada query dasar untuk pengelolaan data. Kelas diakhiri dengan ujian akhir.',
-    filePath: '/documents/course/sertifikat-belajar-dasar-sql.pdf',
+    description: 'An introductory SQL course for data analysts and scientists, covering database fundamentals, DBMS, and data types. Topics included DDL, DML (SELECT, INSERT, UPDATE, DELETE), constraints, and diagram usage in SQL, focusing on practical data management queries.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-belajar-dasar-sql.pdf`,
   },
   {
-    title: 'Belajar Dasar Visualisasi Data',
+    title: 'Learn Fundamentals of Data Visualization',
     issuer: 'Dicoding',
     year: 2023,
-    description:
-      'Mengikuti kelas pengolahan data untuk pemula, mencakup dasar visualisasi data, tools, dan konteks data. Materi meliputi penggunaan Google Sheets untuk pengolahan data, teknik pembuatan grafik efektif, kesalahan umum dalam visualisasi, dan prinsip desain seperti Gestalt dan Preattentive Attributes. Kelas diakhiri dengan ujian akhir untuk evaluasi keterampilan dalam visualisasi data.',
-    filePath: '/documents/course/sertifikat-belajar-dasar-visualisasi-data.pdf',
+    description: 'A foundational data processing course focusing on data visualization, tools, and context. Covered Google Sheets for data processing, effective charting techniques, common visualization pitfalls, and design principles like Gestalt and Preattentive Attributes.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-belajar-dasar-visualisasi-data.pdf`,
   },
   {
-    title: 'Belajar Dasar Manajemen Proyek',
+    title: 'Learn Fundamentals of Project Management',
     issuer: 'Dicoding',
     year: 2023,
-    description:
-      'Mengikuti kelas manajemen proyek yang mencakup konsep dasar, peran manajer proyek, siklus manajemen proyek, dan metodologi seperti Waterfall, Agile, Lean, dan Six Sigma. Materi juga meliputi struktur organisasi dan peran PMO, serta peluang karier di bidang ini. Kelas diakhiri dengan ujian akhir.',
-    filePath: '/documents/course/sertifikat-dasar-manajemen-proyek.pdf',
+    description: 'A project management course covering core concepts, the project manager\'s role, the project lifecycle, and methodologies like Waterfall, Agile, Lean, and Six Sigma. Also explored organizational structures, PMO roles, and career opportunities in the field.',
+    filePath: `${import.meta.env.BASE_URL}documents/course/sertifikat-dasar-manajemen-proyek.pdf`,
   },
 ];
 </script>
 
 <style scoped>
-.scroll-container {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+/* Menyembunyikan scrollbar bawah namun tetap bisa discroll */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
-
-.course-card {
-  width: 25%;
-  min-width: 450px;
-  border-radius: 1rem;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.course-card:hover {
-  transform: translateY(-2px);
-}
-
-.course-card h5 {
-  font-weight: 600;
-}
-
-.scroll-container::-webkit-scrollbar {
-  height: 8px;
-}
-.scroll-container::-webkit-scrollbar-thumb {
-  background: #18335a;
-  border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-  .course-card {
-    width: 90%;
-    min-width: 90%;
-  }
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 </style>

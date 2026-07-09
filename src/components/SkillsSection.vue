@@ -43,7 +43,7 @@ const skills = ref([
   { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   // { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
   { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/white'},
-  { name: 'n8n', icon: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/n8n.svg' },
+  { name: 'n8n', icon: 'https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/n8n.svg'},
 ]);
 </script>
 

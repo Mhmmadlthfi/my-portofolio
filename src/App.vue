@@ -9,6 +9,8 @@
       <AboutSection />
       <ExperienceSection />
       <ProjectsSection />
+      <CertificationSection />
+      <CourseExperience />
       <Footer />
     </div>
   </div>

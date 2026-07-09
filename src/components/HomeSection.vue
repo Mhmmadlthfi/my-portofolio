@@ -76,7 +76,6 @@ import { ref, computed } from 'vue'
 const isTextHovered = ref(false)
 const isImageHovered = ref(false)
 
-// Menggunakan import.meta.env.BASE_URL agar path menyesuaikan environment (lokal vs gh-pages)
 const profileImage = `${import.meta.env.BASE_URL}images/profil-pantai-2.jpeg`
 
 const handleTextHover = () => {
@@ -101,8 +100,5 @@ const imageClasses = computed(() => ({
 }))
 </script>
 
-<style scoped>
-/* Semua styling utama sudah didefinisikan di src/style.css melalui @theme dan @utility */
-/* Style tambahan khusus untuk komponen ini bisa ditambahkan di sini jika diperlukan */
-</style>
+<style scoped></style>
 
