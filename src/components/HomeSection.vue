@@ -1,12 +1,12 @@
 <template>
-  <section
-    id="home"
-    class="relative min-h-screen flex items-center justify-center bg-noise pt-12 overflow-hidden"
-  >
+  <section id="home" class="relative min-h-screen flex items-center justify-center bg-noise pt-12 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-dark/80"></div>
 
     <div class="relative z-10 w-full h-full flex items-center justify-center max-w-[100rem] mx-auto px-4">
-      <div class="relative flex flex-col items-center justify-center w-full mt-10">
+      
+      <!-- PERUBAHAN DI SINI: Mengubah mt-10 menjadi -mt-16 md:mt-10 agar naik di mobile -->
+      <div class="relative flex flex-col items-center justify-center w-full -mt-16 md:mt-10">
+        
         <div class="w-full max-w-6xl flex justify-start md:pl-24 mb-[-3vw] relative z-20 pointer-events-none">
           <h2 class="font-display font-bold text-2xl md:text-4xl tracking-[0.4em] text-white/90 uppercase">
             Muhammad
@@ -44,9 +44,7 @@
         </div>
       </div>
 
-      <div
-        class="absolute bottom-12 left-6 md:left-16 hidden md:flex items-center justify-center w-32 h-32 z-30 opacity-70"
-      >
+      <div class="absolute bottom-12 left-6 md:left-16 hidden md:flex items-center justify-center w-32 h-32 z-30 opacity-70">
         <svg class="animate-spin-slow w-full h-full text-white" viewBox="0 0 100 100">
           <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
           <text class="text-[11px] font-bold uppercase tracking-[0.15em] fill-current">
@@ -59,8 +57,9 @@
           </svg>
         </div>
       </div>
-    </div>
 
+    </div>
+    
     <div class="absolute bottom-12 right-6 md:right-12 z-30 flex flex-col items-end text-right">
       <p class="font-display text-white text-3xl md:text-4xl font-bold uppercase mb-2 leading-none">
         Fullstack<br />Developer
@@ -81,15 +80,12 @@ const profileImage = `${import.meta.env.BASE_URL}images/profil-pantai-2.jpeg`
 const handleTextHover = () => {
   isTextHovered.value = true
 }
-
 const handleTextLeave = () => {
   isTextHovered.value = false
 }
-
 const handleImageHover = () => {
   isImageHovered.value = true
 }
-
 const handleImageLeave = () => {
   isImageHovered.value = false
 }
@@ -99,6 +95,3 @@ const imageClasses = computed(() => ({
   'opacity-100 mix-blend-normal': isImageHovered.value,
 }))
 </script>
-
-<style scoped></style>
-

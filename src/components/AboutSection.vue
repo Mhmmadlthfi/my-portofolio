@@ -50,5 +50,3 @@
 <script setup>
 import SkillsSection from './SkillsSection.vue';
 </script>
-
-<style scoped></style>

@@ -118,6 +118,3 @@ const projects = ref([
   }
 ]);
 </script>
-
-<style scoped>
-</style>
