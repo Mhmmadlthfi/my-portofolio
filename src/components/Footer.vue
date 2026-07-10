@@ -59,7 +59,7 @@ const socialLinks = ref([
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/muhammad-lutfi-wahid-a86805265',
+    url: 'https://www.linkedin.com/in/muhammadlutfiwahid',
     iconClass: 'fab fa-linkedin',
   },
   {
