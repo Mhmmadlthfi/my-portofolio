@@ -93,7 +93,8 @@ const experiences = ref([
       'Engineered an integrated Business-to-Business (B2B) tracking module, delivering real-time progress reporting to streamline crossdivisional communication and eliminate manual updates.',
       'Designed workflow automations using n8n, including the deployment of Agentic AI to generate and distribute highly personalized corporate communications (e.g., customized birthday messages based on role and tenure).',
       'Integrated third-party Payment Gateways into a customer self-ordering platform to automate and secure digital transaction processing.',
-      'Upgraded the existing Point of Sales (POS) system by developing and integrating new business logic, such as a comprehensive customer referral program.'
+      'Upgraded the existing Point of Sales (POS) system by developing and integrating new business logic, such as a comprehensive customer referral program.',
+      'Integrated EDC machines with the internal POS system to automate payment amount generation, eliminating manual entry and accelerating financial reconciliation.'
     ]
   }
 ]);

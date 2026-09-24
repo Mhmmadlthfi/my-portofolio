@@ -26,3 +26,5 @@ dist-ssr
 # AI Agent
 .agents
 graphify-out
+prompt.md
+planning-docs

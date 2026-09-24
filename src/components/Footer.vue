@@ -64,7 +64,7 @@ const socialLinks = ref([
   },
   {
     name: 'Instagram',
-    url: 'https://instagram.com/mhmmadlthfi_',
+    url: 'https://www.instagram.com/_luthfi45',
     iconClass: 'fab fa-instagram',
   },
   {
